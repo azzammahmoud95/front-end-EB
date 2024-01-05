@@ -80,14 +80,14 @@ IP Address: 192.168.18.111
 > Endpoint: /career-test/result/:careerTestId
 > Request Type: GET
 
-**To get the examenii data:**
+**To get the examinee data:**
 
-> Endpoint: /examinee
+> Endpoint: /examinee/:exameniId
 > Request Type: GET
 
-**To update the examenii data:**
+**To update the examinee data:**
 
-> Endpoint: /examinee
+> Endpoint: /examinee/:exameniId
 > Request Type: PATCH
 > Payload:
 > {
