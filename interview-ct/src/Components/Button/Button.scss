@@ -1,0 +1,29 @@
+.Button_Main {
+  font-family: P_Semibold;
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 0.7rem 1rem;
+  border-radius: 13px;
+  min-width: 150px;
+  box-shadow: var(--shadow);
+  border: 3px solid black;
+  transition: 0.3s ease;
+  background-color: var(--white);
+}
+
+.Button_Main:hover {
+  transform: translate(-2px, -3px);
+  box-shadow: var(--shadow-hover);
+  transition: 0.3s ease;
+}
+
+.disabled_button {
+  user-select: none;
+  background-color: var(--grey) !important;
+  cursor: not-allowed;
+}
+
+.disabled_button:hover {
+  transform: translate(0) !important;
+  box-shadow: var(--shadow) !important;
+}

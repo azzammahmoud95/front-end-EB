@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="63.954" height="70.698" viewBox="0 0 63.954 70.698">
+  <g id="Group_37045" data-name="Group 37045" transform="translate(-17980 -611)">
+    <g id="Group_37044" data-name="Group 37044" transform="translate(17987.248 619.372)">
+      <g id="Ellipse_356" data-name="Ellipse 356" transform="translate(34.845 0)" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="5">
+        <circle cx="8.43" cy="8.43" r="8.43" stroke="none"/>
+        <circle cx="8.43" cy="8.43" r="10.93" fill="none"/>
+      </g>
+      <g id="Ellipse_357" data-name="Ellipse 357" transform="translate(0 20.233)" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="5">
+        <circle cx="8.43" cy="8.43" r="8.43" stroke="none"/>
+        <circle cx="8.43" cy="8.43" r="10.93" fill="none"/>
+      </g>
+      <g id="Ellipse_358" data-name="Ellipse 358" transform="translate(34.845 40.465)" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="5">
+        <circle cx="8.43" cy="8.43" r="8.43" stroke="none"/>
+        <circle cx="8.43" cy="8.43" r="10.93" fill="none"/>
+      </g>
+      <path id="Path_37693" data-name="Path 37693" d="M5.59,24.614l19.616,11.43M25.177,4.51,5.59,15.94" transform="translate(10.465 8.329)" stroke="#000" stroke-linejoin="round" stroke-width="5" fill-rule="evenodd"/>
+    </g>
+    <g id="Group_37043" data-name="Group 37043" transform="translate(17985 616)">
+      <g id="Ellipse_356-2" data-name="Ellipse 356" transform="translate(34.845)" fill="#f7d854" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="5">
+        <circle cx="8.43" cy="8.43" r="8.43" stroke="none"/>
+        <circle cx="8.43" cy="8.43" r="10.93" fill="none"/>
+      </g>
+      <g id="Ellipse_357-2" data-name="Ellipse 357" transform="translate(0 20.233)" fill="#f7d854" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="5">
+        <circle cx="8.43" cy="8.43" r="8.43" stroke="none"/>
+        <circle cx="8.43" cy="8.43" r="10.93" fill="none"/>
+      </g>
+      <g id="Ellipse_358-2" data-name="Ellipse 358" transform="translate(34.845 40.465)" fill="#f7d854" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="5">
+        <circle cx="8.43" cy="8.43" r="8.43" stroke="none"/>
+        <circle cx="8.43" cy="8.43" r="10.93" fill="none"/>
+      </g>
+      <path id="Path_37693-2" data-name="Path 37693" d="M5.59,24.614l19.616,11.43M25.177,4.51,5.59,15.94" transform="translate(10.465 8.329)" fill="#f7d854" stroke="#000" stroke-linejoin="round" stroke-width="5" fill-rule="evenodd"/>
+    </g>
+  </g>
+</svg>
