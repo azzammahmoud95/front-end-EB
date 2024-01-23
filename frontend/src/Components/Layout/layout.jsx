@@ -64,6 +64,28 @@ const ProgressBar = ({ progress }) => {
 };
 
 export default function Layout({ children }) {
+  const [columns, setColumns] = useState(3);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth > 1200) {
+        setColumns(3);
+      } else if (window.innerWidth > 768) {
+        setColumns(2);
+      } else {
+        setColumns(1);
+      }
+    };// Initial setup
+    handleResize();
+
+    // Add event listener for window resize
+    window.addEventListener("resize", handleResize);
+
+    // Cleanup on component unmount
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
   return (
     <div>
       <div className="Header-logo">
@@ -76,7 +98,29 @@ export default function Layout({ children }) {
 
         <ProgressBar progress={20} />
 
-        <div className="animation-sidebar"><TriangleStack /></div>
+        <div className="animation-sidebar">
+        <div
+            className="triangle-stack-container"
+            style={{
+              display: "grid",
+              gridTemplateColumns: `repeat(${columns}, 1fr)`,
+              gap: "50px",
+            }}
+          >          <TriangleStack />
+          <TriangleStack />
+          <TriangleStack />
+          <TriangleStack />
+          <TriangleStack />
+          <TriangleStack />
+          <TriangleStack />
+          <TriangleStack />
+          <TriangleStack />
+          <TriangleStack />
+          <TriangleStack />
+          <TriangleStack />
+          
+          </div>
+          </div>
       </div>
     </div>
   );

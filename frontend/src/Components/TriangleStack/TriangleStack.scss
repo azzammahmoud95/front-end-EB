@@ -1,9 +1,12 @@
 // TriangleStack.scss
 .triangle-container {
     position: relative;
-    width: 40px;
-    height: 62px;
-    margin: 50px auto;
+    width: 35px;
+    height: 55px;
+    padding: 5px;
+    // border: 2px solid red;
+    margin: 40px 0px;
+    // margin: 50px auto;
   
     .Triangle-1 {
       position: absolute;
@@ -76,11 +79,11 @@ animation-name: moveUpAndDown;
     }
   
     48% {
-      transform: translateY(100px) rotate(0deg);
+      transform: translateY(50px) rotate(0deg);
     }
   
     62% {
-      transform: translateY(100px) rotate(180deg);
+      transform: translateY(50px) rotate(180deg);
     }
   
     100% {
@@ -100,12 +103,12 @@ animation-name: moveUpAndDown;
     }
   
     48% {
-      transform: translateY(100px) rotate(0deg);
+      transform: translateY(50px) rotate(0deg);
       opacity: 0;
     }
   
     62% {
-      transform: translateY(100px) rotate(180deg);
+      transform: translateY(50px) rotate(180deg);
       opacity: 0;
     }
   
