@@ -41,8 +41,8 @@ const ProgressBar = ({ progress }) => {
   };
 
   const endMarkerStyle = {
-    width: "22px",
-    height: "22px",
+    width: "15px",
+    height: "15px",
     borderRadius: "50%",
     background: "var(--pink)",
     position: "absolute",
