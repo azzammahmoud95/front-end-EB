@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import icon from "../../Assets/Images/logo.svg";
 import "./layout.scss";
+import TriangleStack from "../TriangleStack/TriangleStack";
 
 const ProgressBar = ({ progress }) => {
   const [isMobile, setIsMobile] = useState(false);
@@ -75,7 +76,7 @@ export default function Layout({ children }) {
 
         <ProgressBar progress={20} />
 
-        <div className="animation-sidebar">s</div>
+        <div className="animation-sidebar"><TriangleStack /></div>
       </div>
     </div>
   );
