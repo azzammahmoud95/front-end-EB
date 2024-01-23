@@ -1,7 +1,7 @@
 import React from "react";
 import "./Button.scss";
 
-function Button({ text, color, width, onClick, disabled, textColor }) {
+function Button({ text, color, width, onClick, disabled, textColor,children }) {
   //available colors:  yellow, blue, light blue, pink
 
   return (
@@ -16,7 +16,7 @@ function Button({ text, color, width, onClick, disabled, textColor }) {
       disabled={disabled}
       type={disabled ? "button" : "submit"}
     >
-      {text}
+      {children}
     </button>
   );
 }

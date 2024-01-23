@@ -1,0 +1,31 @@
+.Header-logo {
+  padding: 0.5rem;
+  border-bottom: 3px solid black;
+}
+.flex-layout {
+  display: flex;
+  height: 90dvh;
+  @media (max-width: 767px) {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  .question-child {
+    @media (min-width: 768px) {
+      // Desktop view
+      width: 75%;
+    }
+    @media (max-width: 767px) {
+      // Desktop view
+      width: 100%;
+    }
+  }
+  .animation-sidebar {
+    background-color: var(--yellow);
+    @media (min-width: 768px) {
+      width: 25%;
+    }
+    @media (max-width: 767px) {
+      width: 100%;
+    }
+  }
+}

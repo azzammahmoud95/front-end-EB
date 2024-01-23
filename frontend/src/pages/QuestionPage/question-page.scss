@@ -1,0 +1,9 @@
+.form-layout {
+    display: flex;
+    flex-direction: column;
+    // height: 100%; /* Make the form layout take the full height of the parent container */
+    justify-content: space-between;
+    // justify-content: center;
+    // background-color: greenyellow;
+    flex: 1;
+  }

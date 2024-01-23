@@ -32,10 +32,10 @@ function Checkbox({
   return (
     <span style={style}>
       <div
-        className="Checkbox_New_Wrapper"
+        className={`${selected ? "Checkbox_New_Wrapper Checkbox_New_Wrapper_Clicked" : "Checkbox_New_Wrapper"}`}
         style={{ cursor: disabled ? "unset" : "pointer" }}
         onClick={() => {
-          !disabled && (!click ? setSelected(!selected) : onClick());
+          onClick();
         }}
       >
         <div className="Checkbox_New" ref={clickedBox}>
