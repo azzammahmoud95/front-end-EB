@@ -1,15 +1,42 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import icon from "../../Assets/Images/logo.svg";
 import "./layout.scss";
 
 const ProgressBar = ({ progress }) => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768); // Adjust the breakpoint as needed
+    };
+
+    // Initial setup
+    handleResize();
+
+    // Add event listener for window resize
+    window.addEventListener("resize", handleResize);
+
+    // Cleanup on component unmount
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  const progressBarWrapper = {
+    height: '100%',
+    boxShadow: "var(--shadow)",
+    width: isMobile ? '100%' : '0.4%',
+    border: "3px solid black",
+    background: 'white'
+  };
+
   const progressBarStyle = {
-    height: `${progress}%`,
+    height: isMobile ? '5px' : `${progress}%`, // Adjust the height as needed
     background: "var(--pink)",
     boxShadow: "var(--shadow)",
-    border: "3px solid black",
-    width: "1%",
-    position: "relative", // Added to make sure the end marker is positioned relative to this container
+    width: isMobile ? `${progress}%` : '100%',
+    position: "relative",
+    zIndex: 10
   };
 
   const endMarkerStyle = {
@@ -20,15 +47,17 @@ const ProgressBar = ({ progress }) => {
     position: "absolute",
     boxShadow: "var(--shadow)",
     border: "3px solid black",
-    top: "98%", // Positioned at the bottom of the progress bar
-    left: "50%",
+    top: isMobile ? "-200%" : "98%",
+    left: isMobile ? "100%" : "50%",
     transform: "translateX(-50%)",
     zIndex: 10,
   };
 
   return (
-    <div className="progress-bar" style={progressBarStyle}>
-      <div style={endMarkerStyle}></div>
+    <div style={progressBarWrapper}>
+      <div className="progress-bar" style={progressBarStyle}>
+        <div style={endMarkerStyle}></div>
+      </div>
     </div>
   );
 };
@@ -44,7 +73,7 @@ export default function Layout({ children }) {
           {children}
         </div>
 
-        <ProgressBar progress={50} />
+        <ProgressBar progress={20} />
 
         <div className="animation-sidebar">s</div>
       </div>

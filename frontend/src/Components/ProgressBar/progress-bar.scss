@@ -1,0 +1,33 @@
+// ProgressBar.scss
+
+$shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+
+.progressBarWrapper {
+  width: 1%;
+  height: 0.4%;
+  box-shadow: var(--shadow);
+  border: 3px solid black;
+  background: white;
+
+  .progress-bar {
+    background: var(--pink);
+    box-shadow: var(--shadow);
+    height: 100%;
+    position: relative;
+    z-index: 10;
+
+    .end-marker {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: var(--pink);
+      position: absolute;
+      box-shadow: var(--shadow);
+      border: 3px solid black;
+      top: 50%;
+      left: 98%;
+      transform: translate(-50%, -50%);
+      z-index: 10;
+    }
+  }
+}
