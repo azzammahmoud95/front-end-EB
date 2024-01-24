@@ -20,12 +20,12 @@
     .sub-question {
       font-weight: lighter;
       margin-top: 0.75rem;
-      width: 50%;
+      // width: 50%;
       font-size: 0.6rem;
     }
     @media (max-width:767px) {
-      height: auto;
-      margin: 1rem;
+      // height: auto;
+      // margin: 1rem;
       box-shadow: 6px 6px 0px 0px rgba(0, 0, 0, 1);
       .question {
         font-size: 1.2rem; /* Adjust the font size for mobile */
