@@ -6,7 +6,7 @@ import Button from "../../Components/Button/Button.js";
 import Checkbox from "../../Components/Checkbox/Checkbox.js";
 import './question-page.scss'
 import { GetAllQuestions } from "../../Redux/Questions/Questions-actions.js";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function QuestionPage() {
   const [selectedOption, setSelectedOption] = useState(null);
@@ -14,9 +14,9 @@ export default function QuestionPage() {
 //   useGetAllQuestions()
 // },[])
 const dispatch  = useDispatch();
-useEffect(() => {
-  dispatch(GetAllQuestions());
-},[])
+// useEffect(() => {
+//   dispatch(GetAllQuestions());
+// },[])
 
 
   const handleCheckboxClick = (label) => {
@@ -24,7 +24,8 @@ useEffect(() => {
     setSelectedOption(label);
     console.log("Checkbox clicked, selected:", label);
   };
-
+  const questions = useSelector((store) => store.question.questionData.questions);
+  console.log(questions);
   return (
     <Layout>
      
