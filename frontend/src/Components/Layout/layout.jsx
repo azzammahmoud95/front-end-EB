@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import icon from "../../Assets/Images/logo.svg";
 import "./layout.scss";
 import TriangleStack from "../TriangleStack/TriangleStack";
+import BackButton from "../BackButton/back-button";
 
 const ProgressBar = ({ progress }) => {
   const [isMobile, setIsMobile] = useState(false);
@@ -92,7 +93,8 @@ export default function Layout({ children }) {
         <img src={icon} alt="icon-logo" width={40} height={40} />
       </div>
       <div className="flex-layout">
-        <div className="question-child" style={{ height: "90vh" }}>
+        <div className="question-child">
+        <BackButton />{" "}
           {children}
         </div>
 
@@ -100,13 +102,14 @@ export default function Layout({ children }) {
 
         <div className="animation-sidebar">
         <div
-            className="triangle-stack-container"
-            style={{
-              display: "grid",
-              gridTemplateColumns: `repeat(${columns}, 1fr)`,
-              gap: "50px",
-            }}
-          >          <TriangleStack />
+  className="triangle-stack-container"
+  style={{
+    display: "grid",
+    gridTemplateColumns: `repeat(auto-fill, minmax(100px, 1fr))`,
+    // gap: "50px",
+  }}
+>
+                   <TriangleStack />
           <TriangleStack />
           <TriangleStack />
           <TriangleStack />
@@ -118,7 +121,10 @@ export default function Layout({ children }) {
           <TriangleStack />
           <TriangleStack />
           <TriangleStack />
-          
+          <TriangleStack />
+          <TriangleStack />
+
+          <TriangleStack />     <TriangleStack />     <TriangleStack />     <TriangleStack />     <TriangleStack />     <TriangleStack />     <TriangleStack />     <TriangleStack />     <TriangleStack />     <TriangleStack />
           </div>
           </div>
       </div>

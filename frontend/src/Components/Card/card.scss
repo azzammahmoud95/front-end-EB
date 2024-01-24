@@ -7,11 +7,11 @@
     flex-direction: column;
     box-shadow: 6px 6px 0px 0px rgba(0, 0, 0, 1);
     padding: 1.5rem;
-    margin: 3.5rem;
+    
     // height: 50%;
     @media (max-width:767px) {
         height: auto;
-        margin: 2rem;
+        margin: 1rem;
         box-shadow: 6px 6px 0px 0px rgba(0, 0, 0, 1);
     }
     .question {

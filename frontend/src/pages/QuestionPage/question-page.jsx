@@ -17,10 +17,11 @@ export default function QuestionPage() {
 
   return (
     <Layout>
-      {/* <BackButton />{" "} */}
+     
       <Card
         question={`How appealing is engaging in artistic activities like painting or sculpture?`}
       >
+        
         <form className="form-layout">
           <div>
             <Checkbox label={'Not in the Least'}  onClick={() => handleCheckboxClick('Not in the Least')} selected={selectedOption === 'Not in the Least'} />

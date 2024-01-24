@@ -2,9 +2,16 @@
   padding: 0.5rem;
   border-bottom: 3px solid black;
 }
+.triangle-stack-container{
+  overflow: hidden;
+}
+.question-child{
+   margin: 3rem;
+}
 .flex-layout {
   display: flex;
-  height: 90dvh;
+  height: 92dvh;
+  overflow: hidden;
   @media (max-width: 767px) {
     display: flex;
     flex-direction: column-reverse;
@@ -17,7 +24,11 @@
     @media (max-width: 767px) {
       // Desktop view
       width: 100%;
+      margin: 0;
+
     }
+    
+    
   }
   .animation-sidebar {
     background-color: var(--yellow);
