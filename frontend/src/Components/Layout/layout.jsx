@@ -89,11 +89,11 @@ export default function Layout({ children }) {
   // }, []);
   return (
     <div style={{height:'100vh',overflowY:'scroll'}}>
-      <div className="Header-logo" style={{height:'10%'}}>
+      <div className="Header-logo" >
         <img src={icon} alt="icon-logo" width={40} height={40} />
       </div>
 
-      <div className="flex-layout" style={{height:'90%'}}>
+      <div className="flex-layout" >
         <div className="question-child" >
         <BackButton />{" "}
           {children}

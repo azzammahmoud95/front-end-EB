@@ -21,8 +21,10 @@
     // flex-direction: row;
     // align-content: space-between;
     // flex-wrap: wrap;
-    padding:0.1rem 3rem;
+    padding:0.1rem 5rem;
         height: 85%;
+
+
     @media (min-width: 768px) {
       // Desktop view
       width: 75%;
@@ -38,19 +40,17 @@
     
     
   }
-  .question-child{
-   
- 
- }
+
 }
 .animation-sidebar {
   background-color: var(--yellow);
   overflow: hidden;
-  border: 3px solid red;
+  // border: 3px solid red;
 
 
   @media (min-width: 768px) {
     width: 25%;
+    height: 96vh;
 
   }
   @media (max-width: 767px) {
