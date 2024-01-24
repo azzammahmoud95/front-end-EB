@@ -1,12 +1,13 @@
 // TriangleStack.scss
 .triangle-container {
     position: relative;
-    width: 35px;
-    height: 55px;
+    width: 20px;
+    height: 10px;
     padding: 5px;
     // border: 2px solid red;
     margin: 40px 0px;
     // margin: 50px auto;
+    // transform:rotate(90deg); 
   
     .Triangle-1 {
       position: absolute;
@@ -117,4 +118,8 @@ animation-name: moveUpAndDown;
       opacity: 1;
     }
   }
-  
+  @media (max-width:767px) {
+    .triangle-container{
+    transform: rotate(90deg) ;
+    }
+  }

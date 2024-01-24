@@ -1,6 +1,7 @@
 .Header-logo {
   padding: 0.5rem;
   border-bottom: 3px solid black;
+  position: sticky;
 }
 .triangle-stack-container{
   overflow: hidden;
@@ -10,7 +11,7 @@
 }
 .flex-layout {
   display: flex;
-  height: 92dvh;
+  height: 92vh;
   overflow: hidden;
   @media (max-width: 767px) {
     display: flex;

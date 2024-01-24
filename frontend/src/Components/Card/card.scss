@@ -9,11 +9,7 @@
     padding: 1.5rem;
     
     // height: 50%;
-    @media (max-width:767px) {
-        height: auto;
-        margin: 1rem;
-        box-shadow: 6px 6px 0px 0px rgba(0, 0, 0, 1);
-    }
+   
     .question {
       font-weight: 800;
       font-size: 1.6rem;
@@ -27,5 +23,13 @@
       width: 50%;
       font-size: 0.6rem;
     }
+    @media (max-width:767px) {
+      height: auto;
+      margin: 1rem;
+      box-shadow: 6px 6px 0px 0px rgba(0, 0, 0, 1);
+      .question {
+        font-size: 1.2rem; /* Adjust the font size for mobile */
+    }
+  }
   }
   

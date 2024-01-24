@@ -65,28 +65,28 @@ const ProgressBar = ({ progress }) => {
 };
 
 export default function Layout({ children }) {
-  const [columns, setColumns] = useState(3);
+  // const [columns, setColumns] = useState(3);
 
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth > 1200) {
-        setColumns(3);
-      } else if (window.innerWidth > 768) {
-        setColumns(2);
-      } else {
-        setColumns(1);
-      }
-    };// Initial setup
-    handleResize();
+  // useEffect(() => {
+  //   const handleResize = () => {
+  //     if (window.innerWidth > 1200) {
+  //       setColumns(3);
+  //     } else if (window.innerWidth > 768) {
+  //       setColumns(2);
+  //     } else {
+  //       setColumns(1);
+  //     }
+  //   };// Initial setup
+  //   handleResize();
 
-    // Add event listener for window resize
-    window.addEventListener("resize", handleResize);
+  //   // Add event listener for window resize
+  //   window.addEventListener("resize", handleResize);
 
-    // Cleanup on component unmount
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
+  //   // Cleanup on component unmount
+  //   return () => {
+  //     window.removeEventListener("resize", handleResize);
+  //   };
+  // }, []);
   return (
     <div>
       <div className="Header-logo">
@@ -106,6 +106,7 @@ export default function Layout({ children }) {
   style={{
     display: "grid",
     gridTemplateColumns: `repeat(auto-fill, minmax(100px, 1fr))`,
+    justifyItems: 'center',
     // gap: "50px",
   }}
 >
@@ -123,8 +124,35 @@ export default function Layout({ children }) {
           <TriangleStack />
           <TriangleStack />
           <TriangleStack />
+          <TriangleStack />
+          <TriangleStack />
+          <TriangleStack />
+          <TriangleStack />
+          <TriangleStack />
+          <TriangleStack />
+          <TriangleStack />
+          <TriangleStack />
+          <TriangleStack />
+          <TriangleStack />
+          <TriangleStack />
+          <TriangleStack />
+          <TriangleStack />
+          <TriangleStack />
+          <TriangleStack />
+          <TriangleStack />
+          <TriangleStack />
+          <TriangleStack />
+          <TriangleStack />
+          <TriangleStack />
+          <TriangleStack />
+          <TriangleStack />
+          <TriangleStack />
+          <TriangleStack />
+          <TriangleStack />
+          <TriangleStack />
+          <TriangleStack />
+          <TriangleStack />
 
-          <TriangleStack />     <TriangleStack />     <TriangleStack />     <TriangleStack />     <TriangleStack />     <TriangleStack />     <TriangleStack />     <TriangleStack />     <TriangleStack />     <TriangleStack />
           </div>
           </div>
       </div>
