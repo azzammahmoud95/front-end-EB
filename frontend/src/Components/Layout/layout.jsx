@@ -3,9 +3,12 @@ import icon from "../../Assets/Images/logo.svg";
 import "./layout.scss";
 import TriangleStack from "../TriangleStack/TriangleStack";
 import BackButton from "../BackButton/back-button";
+import { useDispatch, useSelector } from "react-redux";
+import { GetAllQuestions } from "../../Redux/Questions/Questions-actions";
 
 const ProgressBar = ({ progress }) => {
   const [isMobile, setIsMobile] = useState(false);
+  
 
   useEffect(() => {
     const handleResize = () => {
@@ -65,6 +68,24 @@ const ProgressBar = ({ progress }) => {
 };
 
 export default function Layout({ children }) {
+  const dispatch  = useDispatch();
+  const [progressIndicator,setProgressIndicator ] = useState(0)
+  useEffect(() => {
+    dispatch(GetAllQuestions());
+  }, []);
+
+  const questionsAnswered = useSelector(
+    (store) => store.questionsReducers.questionData.questions
+  );
+
+  useEffect(() => {
+    if (questionsAnswered) {
+      setProgressIndicator(100 - (questionsAnswered.length / 50) * 100);
+      // console.log("progress", progress);
+    }
+  }, [questionsAnswered]);
+// const progress = (questionsAnswered.length / 50) * 100;
+// console.log("progress",progress);
   // const [columns, setColumns] = useState(3);
 
   // useEffect(() => {
@@ -99,7 +120,7 @@ export default function Layout({ children }) {
           {children}
         </div>
 
-        <ProgressBar progress={20} />
+        <ProgressBar progress={progressIndicator} />
 
         <div className="animation-sidebar" >
         <div

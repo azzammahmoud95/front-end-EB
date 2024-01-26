@@ -5,7 +5,7 @@ import { AxiosFunction } from "../../utils/axiosRequest";
 export const GetAllQuestions = () => async (dispatch) => {
     try {
       await dispatch(AxiosFunction({
-        url: '/career-test/4c8e4ab0-cd01-482f-81f5-6cd81f44b2bd/questions',
+        url: '/career-test/0534ef52-a76a-4546-a1c7-5f819275668c/questions',
         method: 'GET',        
         getSuccess: getQuestionSuccess,
         getRequest:getQuestionRequest,
@@ -21,7 +21,7 @@ export const GetAllQuestions = () => async (dispatch) => {
       await dispatch(
         AxiosFunction({
           
-          url: `/career-test/4c8e4ab0-cd01-482f-81f5-6cd81f44b2bd`,
+          url: `/career-test/0534ef52-a76a-4546-a1c7-5f819275668c`,
           method: 'PATCH',
           getSuccess: getQuestionSuccess,
           getRequest: getQuestionRequest,

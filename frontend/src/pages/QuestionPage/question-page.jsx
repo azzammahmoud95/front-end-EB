@@ -13,7 +13,9 @@ export default function QuestionPage() {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState({  
     question:{},
     index: 0
-  }); // Added state for the current question index
+  });
+  const [localQuestions, setLocalQuestions ] = useState([]);
+   // Added state for the current question index
 // useEffect(() => {
 //   useGetAllQuestions()
 // },[])
@@ -40,14 +42,21 @@ useEffect(() => {
   useEffect(() => {
     if(questions){
       console.log("questions",questions);
-      setCurrentQuestionIndex({question: questions[0],index:0})
-     
+      setLocalQuestions([...questions]);
+
+
+   console.log("localQuestions",localQuestions
+   )
+setCurrentQuestionIndex({
+  question:localQuestions[0],
+  index: 0
+})
+console.log(currentQuestionIndex)
     }
   },[questions])
   
   const handleNextQuestion = async (event) => {
-    // event.preventDefault();
-  console.log("currentQuestionIndex.category",currentQuestionIndex.category)
+    event.preventDefault();
     const answerData = {
       category: currentQuestionIndex.question.category,
       value: selectedOption,
@@ -61,24 +70,24 @@ useEffect(() => {
        dispatch(PatchAnswer({answerData}));
 
       // Now you can access the response from the action
-
+      setCurrentQuestionIndex({
+        question: localQuestions[currentQuestionIndex.index + 1],
+        index: currentQuestionIndex.index + 1
+      });
+      setSelectedOption(null)
+    //  console.log( questions);
+     console.log(localQuestions)
+console.log("after incrementing",currentQuestionIndex)
       console.log('tabi');
     } catch (error) {
       console.error('Error:', error);
     }
 
-    // Increment the current question index when the button is clicked
-    setCurrentQuestionIndex((prevIndex) => ({
-      ...prevIndex,
-      index: prevIndex.index + 1,
-    }));
-    // Reset selectedOption for the new question
-    // setSelectedOption(null);
   };
   return (
     <Layout>
       <Card
-        question={currentQuestionIndex.question.prompt}
+        question={currentQuestionIndex.question?.prompt || "No Internet" }
       >
         
         <form className="form-layout" action="POST" onSubmit={handleNextQuestion}>
