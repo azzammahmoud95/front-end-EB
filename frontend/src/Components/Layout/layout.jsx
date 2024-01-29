@@ -7,66 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { GetAllQuestions } from "../../Redux/Questions/Questions-actions";
 import Loader from "../Loader/Loader";
 
-const ProgressBar = ({ progress }) => {
-  const [isMobile, setIsMobile] = useState(false);
-  
 
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth <= 768); // Adjust the breakpoint as needed
-    };
-
-    // Initial setup
-    handleResize();
-
-    // Add event listener for window resize
-    window.addEventListener("resize", handleResize);
-
-    // Cleanup on component unmount
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
-
-  const progressBarWrapper = {
-    height: isMobile ? '1%' : '100%',
-    boxShadow: "var(--shadow)",
-    width: isMobile ? '100%' : '0.4%',
-    border: "3px solid black",
-    background: 'white'
-  };
-
-  const progressBarStyle = {
-    height: isMobile ? '5px' : `${progress}%`, // Adjust the height as needed
-    background: "var(--pink)",
-    boxShadow: "var(--shadow)",
-    width: isMobile ? `${progress}%` : '100%',
-    position: "relative",
-    zIndex: 10
-  };
-
-  const endMarkerStyle = {
-    width: "15px",
-    height: "15px",
-    borderRadius: "50%",
-    background: "var(--pink)",
-    position: "absolute",
-    boxShadow: "var(--shadow)",
-    border: "3px solid black",
-    top: isMobile ? "-200%" : "98%",
-    left: isMobile ? "100%" : "50%",
-    transform: "translateX(-50%)",
-    zIndex: 10,
-  };
-
-  return (
-    <div style={progressBarWrapper}>
-      <div className="progress-bar" style={progressBarStyle}>
-        <div style={endMarkerStyle}></div>
-      </div>
-    </div>
-  );
-};
 
 export default function Layout({ children }) {
   const dispatch  = useDispatch();
@@ -116,11 +57,11 @@ export default function Layout({ children }) {
       </div>
 
       <div className="flex-layout" >
-        <div className="question-child" >
+        {/* <div className="question-child" > */}
           { children}
-        </div>
+        {/* </div> */}
 
-        <ProgressBar progress={progressIndicator} />
+        {/* <ProgressBar progress={progressIndicator} /> */}
 
         <div className="animation-sidebar" >
         <div

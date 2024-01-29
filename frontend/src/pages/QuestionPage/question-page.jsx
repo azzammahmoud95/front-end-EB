@@ -8,7 +8,66 @@ import './question-page.scss'
 import { GetAllQuestions, PatchAnswer } from "../../Redux/Questions/Questions-actions.js";
 import { useDispatch, useSelector } from "react-redux";
 import Loader from "../../Components/Loader/Loader.js";
+const ProgressBar = ({ progress }) => {
+  const [isMobile, setIsMobile] = useState(false);
+  
 
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768); // Adjust the breakpoint as needed
+    };
+
+    // Initial setup
+    handleResize();
+
+    // Add event listener for window resize
+    window.addEventListener("resize", handleResize);
+
+    // Cleanup on component unmount
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  const progressBarWrapper = {
+    height: isMobile ? '1%' : '100%',
+    boxShadow: "var(--shadow)",
+    width: isMobile ? '100%' : '0.4%',
+    border: "3px solid black",
+    background: 'white'
+  };
+
+  const progressBarStyle = {
+    height: isMobile ? '5px' : `${progress}%`, // Adjust the height as needed
+    background: "var(--pink)",
+    boxShadow: "var(--shadow)",
+    width: isMobile ? `${progress}%` : '100%',
+    position: "relative",
+    zIndex: 10
+  };
+
+  const endMarkerStyle = {
+    width: "15px",
+    height: "15px",
+    borderRadius: "50%",
+    background: "var(--pink)",
+    position: "absolute",
+    boxShadow: "var(--shadow)",
+    border: "3px solid black",
+    top: isMobile ? "-200%" : "98%",
+    left: isMobile ? "100%" : "50%",
+    transform: "translateX(-50%)",
+    zIndex: 10,
+  };
+
+  return (
+    <div style={progressBarWrapper}>
+      <div className="progress-bar" style={progressBarStyle}>
+        <div style={endMarkerStyle}></div>
+      </div>
+    </div>
+  );
+};
 export default function QuestionPage() {
   const [selectedOption, setSelectedOption] = useState(null);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState({  
@@ -115,12 +174,17 @@ console.log(currentQuestionIndex)
     setSelectedOption(localQuestions[currentQuestionIndex.index - 1].selectedOption)
     console.log("backbutton event",currentQuestionIndex)
   };
+  const totalQuestions = localQuestions.length;
+  const answeredQuestions = localQuestions.filter(question => question.selectedOption !== null);
+  const progressIndicator = (answeredQuestions.length / totalQuestions) * 100;
+
   return (
     <Layout>
     {loading ? (
       <Loader />
     ) : (
       <>
+      <div className="question-child">
         <BackButton onClick={handleBackButton} />
         <Card
           question={currentQuestionIndex.question?.prompt || "No Questions"}
@@ -162,6 +226,9 @@ console.log(currentQuestionIndex)
             </Button>
           </form>
         </Card>
+        </div>
+        <ProgressBar progress={progressIndicator}/>
+      
       </>
     )}
   </Layout>
