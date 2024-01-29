@@ -2,7 +2,7 @@ import { useDispatch,useSelector } from "react-redux";
 import { getQuestionSuccess,getQuestionFailure,getQuestionRequest } from "./Questions-reducers";
 import axios from 'axios'
 import { AxiosFunction } from "../../utils/axiosRequest";
-const careerTestId = "b8f5c6b0-296e-41b1-b4b8-9ed5b7f1897f";
+const careerTestId = "9bfa90ad-5485-41e2-a8c5-72443e331dc9";
 
 export const GetAllQuestions = () => async (dispatch) => {
     try {

@@ -13,6 +13,7 @@ export default function QuestionPage() {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState({  
     question:{},
     index: 0,
+    selectedOption:null
   });
   const [localQuestions, setLocalQuestions ] = useState([]);
    // Added state for the current question index
@@ -52,6 +53,7 @@ useEffect(() => {
     if(questions){
       const initializedQuestions = questions.map((question) => ({
         ...question,
+        
         selectedOption: null,
       }));
       console.log("questions",questions);
@@ -81,18 +83,18 @@ console.log(currentQuestionIndex)
     console.log('himi');
 
     try {
-       dispatch(PatchAnswer({answerData}));
+      dispatch(PatchAnswer({ answerData }));
+      const updatedLocalQuestions = [...localQuestions];
+      updatedLocalQuestions[currentQuestionIndex.index].selectedOption = selectedOption;
+      setLocalQuestions(updatedLocalQuestions);
 
-      // Now you can access the response from the action
       setCurrentQuestionIndex({
         question: localQuestions[currentQuestionIndex.index + 1],
-        index: currentQuestionIndex.index + 1
+        index: currentQuestionIndex.index + 1,
+        selectedOption: selectedOption // Add selectedOption to currentQuestionIndex
       });
-      setSelectedOption(null)
-    //  console.log( questions);
-     console.log(localQuestions)
-console.log("after incrementing",currentQuestionIndex)
-      console.log('tabi');
+      console.log('localqusetionssssss',localQuestions)
+      setSelectedOption(null);
     } catch (error) {
       console.error('Error:', error);
     }
@@ -101,8 +103,10 @@ console.log("after incrementing",currentQuestionIndex)
   const handleBackButton = () => {
     setCurrentQuestionIndex({
       question: localQuestions[currentQuestionIndex.index - 1],
-      index: currentQuestionIndex.index - 1
+      index: currentQuestionIndex.index - 1,
+      selectedOption: localQuestions[currentQuestionIndex.index - 1].selectedOption
     });
+    setSelectedOption(localQuestions[currentQuestionIndex.index - 1].selectedOption)
     console.log("backbutton event",currentQuestionIndex)
   };
   return (
