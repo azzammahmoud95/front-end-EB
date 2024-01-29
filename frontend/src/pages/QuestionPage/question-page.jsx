@@ -12,7 +12,7 @@ export default function QuestionPage() {
   const [selectedOption, setSelectedOption] = useState(null);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState({  
     question:{},
-    index: 0
+    index: 0,
   });
   const [localQuestions, setLocalQuestions ] = useState([]);
    // Added state for the current question index
@@ -34,6 +34,15 @@ useEffect(() => {
       'Very Much': 4,
       'Extremely': 5,
     };
+    const updatedQuestions = localQuestions.map((question, index) => {
+      if (index === currentQuestionIndex.index) {
+        return {
+          ...question,
+          selectedOption: valueMap[label], // Add the selected option to the current question
+        };
+      }
+      return question;
+    });
   
     setSelectedOption(valueMap[label]);
     console.log(valueMap[label]);
@@ -41,19 +50,24 @@ useEffect(() => {
   const questions = useSelector((store) => store.questionsReducers.questionData.questions);
   useEffect(() => {
     if(questions){
+      const initializedQuestions = questions.map((question) => ({
+        ...question,
+        selectedOption: null,
+      }));
       console.log("questions",questions);
-      setLocalQuestions([...questions]);
+      setLocalQuestions(initializedQuestions);
 
 
    console.log("localQuestions",localQuestions
    )
-setCurrentQuestionIndex({
-  question:localQuestions[0],
-  index: 0
-})
+   setCurrentQuestionIndex({
+    question: initializedQuestions[0],
+    index: 0
+  });
+  console.log("localQuestions", localQuestions);
 console.log(currentQuestionIndex)
     }
-  },[questions])
+  },[questions,])
   
   const handleNextQuestion = async (event) => {
     event.preventDefault();
@@ -84,10 +98,19 @@ console.log("after incrementing",currentQuestionIndex)
     }
 
   };
+  const handleBackButton = () => {
+    setCurrentQuestionIndex({
+      question: localQuestions[currentQuestionIndex.index - 1],
+      index: currentQuestionIndex.index - 1
+    });
+    console.log("backbutton event",currentQuestionIndex)
+  };
   return (
     <Layout>
+              <BackButton onClick={handleBackButton}/>{" "}
+
       <Card
-        question={currentQuestionIndex.question?.prompt || "No Internet" }
+        question={currentQuestionIndex.question?.prompt || "No Questions" }
       >
         
         <form className="form-layout" action="POST" onSubmit={handleNextQuestion}>

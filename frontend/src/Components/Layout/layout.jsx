@@ -116,7 +116,6 @@ export default function Layout({ children }) {
 
       <div className="flex-layout" >
         <div className="question-child" >
-        <BackButton />{" "}
           {children}
         </div>
 
