@@ -1,0 +1,39 @@
+.Checkbox_New_Wrapper {
+    cursor: pointer;
+    // user-select: none;
+    // width: 100%;
+    // display: flex;
+    flex-direction: row;
+    align-items: center;
+    // gap: 1.5rem;
+    // border:3px solid black;
+    // box-shadow: var(--shadow);
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    padding: 0;
+    // .Checkbox_New {
+    //   width: 20%;
+    //   border: 3px solid black;
+    //   width: 1.5rem;
+    //   aspect-ratio: 1/1;
+    //   // background-color: var(--blue);
+    //   border-radius: 10px;
+    //   box-shadow: var(--shadow);
+    //   display: flex;
+    //   justify-content: center;
+    //   align-items: center;
+  
+    // }
+  
+  
+  
+  .input_styling{
+   width: 100%;
+   padding: .5rem;
+   box-shadow: var(--shadow);
+   border-radius: 5px;
+   border: 1px solid black;
+   background-color: transparent;
+  }
+  
+  }
