@@ -5,6 +5,7 @@ import TriangleStack from "../TriangleStack/TriangleStack";
 import BackButton from "../BackButton/back-button";
 import { useDispatch, useSelector } from "react-redux";
 import { GetAllQuestions } from "../../Redux/Questions/Questions-actions";
+import Loader from "../Loader/Loader";
 
 const ProgressBar = ({ progress }) => {
   const [isMobile, setIsMobile] = useState(false);
@@ -77,7 +78,7 @@ export default function Layout({ children }) {
   const questionsAnswered = useSelector(
     (store) => store.questionsReducers.questionData.questions
   );
-
+  
   useEffect(() => {
     if (questionsAnswered) {
       setProgressIndicator(100 - (questionsAnswered.length / 50) * 100);
@@ -116,7 +117,7 @@ export default function Layout({ children }) {
 
       <div className="flex-layout" >
         <div className="question-child" >
-          {children}
+          { children}
         </div>
 
         <ProgressBar progress={progressIndicator} />

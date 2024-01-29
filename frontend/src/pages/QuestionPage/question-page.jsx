@@ -7,6 +7,7 @@ import Checkbox from "../../Components/Checkbox/Checkbox.js";
 import './question-page.scss'
 import { GetAllQuestions, PatchAnswer } from "../../Redux/Questions/Questions-actions.js";
 import { useDispatch, useSelector } from "react-redux";
+import Loader from "../../Components/Loader/Loader.js";
 
 export default function QuestionPage() {
   const [selectedOption, setSelectedOption] = useState(null);
@@ -49,13 +50,18 @@ useEffect(() => {
     console.log(valueMap[label]);
   };
   const questions = useSelector((store) => store.questionsReducers.questionData.questions);
+  const loading = useSelector((store) => store.questionsReducers.getQuestionLoading);
   useEffect(() => {
+    // if(loading){
+    //   console.log(loading)
+    // }
     if(questions){
       const initializedQuestions = questions.map((question) => ({
         ...question,
         
         selectedOption: null,
       }));
+     
       console.log("questions",questions);
       setLocalQuestions(initializedQuestions);
 
@@ -69,7 +75,7 @@ useEffect(() => {
   console.log("localQuestions", localQuestions);
 console.log(currentQuestionIndex)
     }
-  },[questions,])
+  },[questions,loading])
   
   const handleNextQuestion = async (event) => {
     event.preventDefault();
@@ -111,25 +117,54 @@ console.log(currentQuestionIndex)
   };
   return (
     <Layout>
-              <BackButton onClick={handleBackButton}/>{" "}
-
-      <Card
-        question={currentQuestionIndex.question?.prompt || "No Questions" }
-      >
-        
-        <form className="form-layout" action="POST" onSubmit={handleNextQuestion}>
-          <div>
-            <Checkbox label={'Not in the Least'}  onClick={() => handleCheckboxClick('Not in the Least')} selected={selectedOption === 1} />
-            <Checkbox label={'Slightly'} onClick={() => handleCheckboxClick('Slightly')} selected={selectedOption ===  2} />
-            <Checkbox label={'Moderately'} onClick={() => handleCheckboxClick('Moderately')} selected={selectedOption === 3} />
-            <Checkbox label={'Very Much'} onClick={() => handleCheckboxClick('Very Much')} selected={selectedOption === 4} />
-            <Checkbox label={'Extremely'} onClick={() => handleCheckboxClick('Extremely')} selected={selectedOption === 5} />
-          </div>
-          <Button width={'100%'} color={'var(--lightGreen)'} type={'submit'} >
-            Next Question
-          </Button>
-        </form>
-      </Card>{" "}
-    </Layout>
+    {loading ? (
+      <Loader />
+    ) : (
+      <>
+        <BackButton onClick={handleBackButton} />
+        <Card
+          question={currentQuestionIndex.question?.prompt || "No Questions"}
+        >
+          <form
+            className="form-layout"
+            action="POST"
+            onSubmit={handleNextQuestion}
+          >
+            <div>
+              <Checkbox
+                label={"Not in the Least"}
+                onClick={() => handleCheckboxClick("Not in the Least")}
+                selected={selectedOption === 1}
+              />
+              <Checkbox
+                label={"Slightly"}
+                onClick={() => handleCheckboxClick("Slightly")}
+                selected={selectedOption === 2}
+              />
+              <Checkbox
+                label={"Moderately"}
+                onClick={() => handleCheckboxClick("Moderately")}
+                selected={selectedOption === 3}
+              />
+              <Checkbox
+                label={"Very Much"}
+                onClick={() => handleCheckboxClick("Very Much")}
+                selected={selectedOption === 4}
+              />
+              <Checkbox
+                label={"Extremely"}
+                onClick={() => handleCheckboxClick("Extremely")}
+                selected={selectedOption === 5}
+              />
+            </div>
+            <Button width={"100%"} color={"var(--lightGreen)"} type={"submit"}>
+              Next Question
+            </Button>
+          </form>
+        </Card>
+      </>
+    )}
+  </Layout>
+  
   );
 }
